@@ -20,6 +20,7 @@ const options = [
 ];
 
 const SelectTheme = () => {
+  //
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 

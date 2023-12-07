@@ -8,6 +8,7 @@ const Providers = ({
 }: {
   children: React.ReactNode | JSX.Element;
 }) => {
+  //
   return <ThemeProvider>{children}</ThemeProvider>;
 };
 
