@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import CustomSelect from "../custom/select";
 
 const options = [
@@ -15,13 +15,21 @@ const options = [
 
 const SetLanguage = () => {
   // const { router, searchParams, pathname } = useNavigations();
+  const [lang, setLang] = useState(
+    localStorage.getItem("lang") ?? options[0].value
+  );
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // const url = setQuery("setLanguage", e.target.value, searchParams);
-    // router.push(pathname + "?" + url);
+    if (typeof localStorage !== "undefined") {
+      const value = e.target.value;
+      setLang(value);
+      localStorage.setItem("lang", value);
+    }
   };
 
-  return <CustomSelect onChange={onChange} options={options} />;
+  return (
+    <CustomSelect defaultValue={lang} onChange={onChange} options={options} />
+  );
 };
 
 export default SetLanguage;
