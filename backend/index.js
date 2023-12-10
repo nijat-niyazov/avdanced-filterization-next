@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const { isNil } = require("lodash");
 const data = require("./data");
+const en = require("./message/en");
+const tr = require("./message/tr");
 
 const app = express();
 
@@ -29,8 +31,6 @@ function containsColors(colors, product) {
 
 function applyFilters(products, { query, sort, colors, minPrice, maxPrice }) {
   const filteredProducts = [];
-
-  console.log(colors);
 
   // skip products based on filters
   for (const product of products) {
@@ -76,8 +76,14 @@ app.get("/items", (req, res) => {
 
   // fake the request to a backend search service like solr or elasticsearch
   setTimeout(() => {
-    res.json({ products: applyFilters(data, req.query), maxPrice });
+    res.json({ data: applyFilters(data, req.query), maxPrice });
   }, 250);
+});
+
+app.get("/translation", (req, res) => {
+  const translationData = req.query.lang === "tr" ? tr : en;
+
+  res.json({ data: translationData });
 });
 
 app.listen(3001, () => {
