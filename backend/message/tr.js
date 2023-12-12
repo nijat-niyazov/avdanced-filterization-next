@@ -1,17 +1,27 @@
 module.exports = {
-  nothing_found: {
-    title: "Böyle bir ürün bulunamadı",
+  pages: {
+    about: { title: "Hakkımızda", path: "/hakkimizda" },
   },
+  nothing_found: "Böyle bir ürün bulunamadı",
+  visited:
+    "{count, plural, =0 {Henüz inceleme yok} =1 {Bir kişi tarafından incelendi } other {# kişi inceledi}}",
 
   header: {
     title:
-      "Next14de Filterizasyon işlemi <important> {name} </important>  tarafından yapıldı",
+      "<home>Next14de</home> Filterizasyon işlemi <github> nijat-niyazov </github> tarafından yapıldı",
     placeholder: "Hemen ara...",
     btn: "Üzerime klikle",
+    des: "Güzel",
   },
 
   currency: {
     price: "Tutar: {price, number, currency}",
+  },
+
+  categories: {
+    bags: "Çantalar",
+    shoes: "Ayakkabılar",
+    jackets: "Ceketler",
   },
 
   colors: {

@@ -54,14 +54,18 @@ function applyFilters(products, { query, sort, colors, minPrice, maxPrice }) {
   }
 
   return filteredProducts.sort((a, b) => {
-    const { name, price } = a;
-    const { name: nameB, price: priceB } = b;
+    const { name, price, visited } = a;
+    const { name: nameB, price: priceB, visited: visitedB } = b;
 
     switch (sort) {
       case "priceDesc":
         return priceB - price;
       case "priceAsc":
         return price - priceB;
+      case "lessPopular":
+        return visited - visitedB;
+      case "mostPopular":
+        return visitedB - visited;
       default:
         return name.localeCompare(nameB);
     }

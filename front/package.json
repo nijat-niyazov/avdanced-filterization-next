@@ -10,12 +10,13 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "i18next": "^23.7.8",
-    "negotiator": "^0.6.3",
     "next": "14.0.3",
+    "next-intl": "^3.3.1",
     "next-themes": "^0.2.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-input-hints": "^3.0.0",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^20",

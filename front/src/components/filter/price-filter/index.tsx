@@ -3,7 +3,13 @@ import { Arrow } from "@/components/ui";
 import { useDebounced, useNavigations, useSearchRouting } from "@/hooks";
 import { ChangeEvent, useState } from "react";
 
-const PriceFilter = ({ defMaxPrice }: { defMaxPrice: number }) => {
+const PriceFilter = ({
+  defMaxPrice,
+  title,
+}: {
+  defMaxPrice: number;
+  title: string;
+}) => {
   const { searchParams } = useNavigations();
 
   const initialMax = searchParams.get("maxPrice") ?? defMaxPrice;
@@ -40,7 +46,7 @@ const PriceFilter = ({ defMaxPrice }: { defMaxPrice: number }) => {
           onClick={toggleShow}
           className="font-bold text-start text-lg mb-3 hove:text-purple-500 flex-1"
         >
-          Price
+          {title}
         </button>
 
         <div className="flex items-center gap-3">

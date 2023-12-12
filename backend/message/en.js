@@ -1,14 +1,28 @@
 module.exports = {
-  nothing_found: {
-    title: "Nothing has found",
+  pages: {
+    about: { title: "About", path: "/about" },
   },
+  nothing_found: "Nothing has found",
+  visited:
+    "{count, plural, =0 {No one visited yet} =1 {One user visited} other {# users visited this}}.",
+
   header: {
-    title: "Filterization in Next14 by <important> {name} </important>",
+    title:
+      "<home>Filterization in Next14</home> by <github> nijat-niyazov </github>",
+
     placeholder: "Search...",
     btn: "Click me",
+    des: "nice",
   },
+
   currency: {
-    price: "Cost: {price, style: 'currency', currency: 'USD'}",
+    price: "Cost: {price, number, currency}",
+  },
+
+  categories: {
+    bags: "Bags",
+    shoes: "Shoes",
+    jackets: "Jackets",
   },
 
   colors: {

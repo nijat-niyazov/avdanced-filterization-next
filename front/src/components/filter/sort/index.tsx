@@ -1,23 +1,9 @@
 "use client";
 import { useNavigations } from "@/hooks";
 import { setQuery } from "@/utils/setQuery";
+import { useLocale } from "next-intl";
 import React from "react";
 import CustomSelect from "../custom/select";
-
-const options = [
-  {
-    label: "Name",
-    value: "name",
-  },
-  {
-    label: "Price Asc",
-    value: "priceAsc",
-  },
-  {
-    label: "Price Desc",
-    value: "priceDesc",
-  },
-];
 
 const Sort = () => {
   const { router, searchParams, pathname } = useNavigations();
@@ -27,10 +13,35 @@ const Sort = () => {
     router.push(pathname + "?" + url);
   };
 
+  const locale = useLocale();
+
+  const options = [
+    {
+      label: locale === "en" ? "Name" : "Ad",
+      value: "name",
+    },
+    {
+      label: locale === "en" ? "Price Asc" : "Artan Fiyat",
+      value: "priceAsc",
+    },
+    {
+      label: locale === "en" ? "Price Desc" : "Azalan Fiyat",
+      value: "priceDesc",
+    },
+    {
+      label: locale === "en" ? "Less Popular" : "Az popüler",
+      value: "lessPopular",
+    },
+    {
+      label: locale === "en" ? "Most Popular" : "En popüler",
+      value: "mostPopular",
+    },
+  ];
+
   return (
     <CustomSelect
       onChange={onChange}
-      label="Sort by"
+      label={locale === "en" ? "Sort by" : "Sortla"}
       defaultValue={searchParams.get("sort") ?? ""}
       options={options}
     />

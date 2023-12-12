@@ -6,9 +6,9 @@ export default async function Home({
 }: {
   searchParams: { [key: string]: string | string[] };
 }) {
-  const { products, maxPrice } = await getItemsWithFetch(searchParams);
+  const { data, maxPrice } = await getItemsWithFetch(searchParams);
 
-  return <HomeContainer products={products} maxPrice={maxPrice} />;
+  return <HomeContainer products={data} maxPrice={maxPrice} />;
 
   // const promise =  getItemsWithFetch(searchParams);
   // return <HomeContainerCopy promise={promise} maxPrice={maxPrice} />;

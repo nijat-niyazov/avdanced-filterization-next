@@ -1,11 +1,15 @@
 "use client";
-import React, { useState } from "react";
-import CustomSelect from "../custom/select";
 
-const options = [
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { ChangeEvent } from "react";
+import { CustomSelect } from "..";
+
+const options: { label: string; value: string }[] = [
   {
     label: "English",
-    value: "eng",
+    value: "en",
   },
   {
     label: "Turkish",
@@ -14,21 +18,18 @@ const options = [
 ];
 
 const SetLanguage = () => {
-  // const { router, searchParams, pathname } = useNavigations();
-  const [lang, setLang] = useState(
-    localStorage.getItem("lang") ?? options[0].value
-  );
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (typeof localStorage !== "undefined") {
-      const value = e.target.value;
-      setLang(value);
-      localStorage.setItem("lang", value);
-    }
-  };
+  const locale = useLocale();
+  const url = `${pathname}?${searchParams.toString()}`;
+
+  const onChange = (e: ChangeEvent<HTMLSelectElement>) =>
+    router.push(url as "/categories", { locale: e.target.value });
 
   return (
-    <CustomSelect defaultValue={lang} onChange={onChange} options={options} />
+    <CustomSelect defaultValue={locale} onChange={onChange} options={options} />
   );
 };
 

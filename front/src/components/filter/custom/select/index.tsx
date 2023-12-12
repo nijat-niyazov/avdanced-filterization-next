@@ -33,11 +33,7 @@ function CustomSelect({
         </option>
       )}
       {options.map((option, key) => (
-        <option
-          selected={defaultValue === option.label}
-          key={key}
-          value={option.value}
-        >
+        <option key={key} value={option.value}>
           {option.label}
         </option>
       ))}

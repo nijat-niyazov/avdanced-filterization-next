@@ -1,8 +1,5 @@
-import { ColorFilters, PriceFilter } from "@/components/filter";
-import Categories from "@/components/filter/categories";
-
-import { FilterInfo, Products } from "@/components/ui";
-import { ProductType } from "@/constants";
+import { Products } from "@/components/ui";
+import { ProductType } from "@/constants/types";
 
 const HomeContainerCopy = ({
   products,
@@ -22,10 +19,10 @@ const HomeContainerCopy = ({
   return (
     <div className="flex items-start gap-10 mt-5">
       <div className="w-1/5 pr-5 border-black/20 border-r-2 sticky top-0">
-        <FilterInfo totalItems={products.length} itemCounts={{}} />
+        {/* <FilterInfo totalItems={products.length} itemCounts={{}} />
         <ColorFilters />
         <Categories />
-        <PriceFilter defMaxPrice={maxPrice} />
+        <PriceFilter defMaxPrice={maxPrice} /> */}
       </div>
 
       <Products products={products} />

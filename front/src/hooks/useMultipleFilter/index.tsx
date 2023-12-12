@@ -1,9 +1,10 @@
 "use client";
 
 import { Arrow } from "@/components/ui";
-import { OptionType } from "@/constants";
+import { OptionType } from "@/constants/types";
 import { useNavigations } from "@/hooks";
 import { setQuery } from "@/utils/setQuery";
+import { useLocale } from "next-intl";
 import { ChangeEvent, useState } from "react";
 
 const useMultipleFilter = (
@@ -50,6 +51,8 @@ const useMultipleFilter = (
 
   const hasFilters = filteredOptions.length > 0 && show;
 
+  const enlocale = useLocale() === "en";
+
   return (
     <div className=" font-medium mt-5 pb-5 border-b-2 border-gray-400/40">
       <div className="flex items-center justify-between">
@@ -73,7 +76,7 @@ const useMultipleFilter = (
               pointerEvents: hasFilters ? "auto" : "none",
             }}
           >
-            Clear
+            {enlocale ? "Clear" : "Temizle"}
           </button>
 
           <Arrow show={show} />
