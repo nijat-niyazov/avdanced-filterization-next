@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    --color-primary: #fff;
+    --color-secondary: #000;
+    --color-buttons: #0000ff;
+    --color-typography: #fff;
+  }
+  @import url("./dark.css");
+  @import url("./nature.css");
+}
+
+/* 
+.header,
+.footer,
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-size: x-large;
+}
+
+.header {
+  height: 40px;
+}
+
+.footer {
+  height: 100px;
+}
+
+.main {
+  background-color: grey;
+  font-size: xx-large;
+} */

@@ -1,0 +1,6 @@
+html[data-theme="nature"] {
+  --color-primary: #89da59;
+  --color-secondary: #f4cc70;
+  --color-typography: #20948b;
+  --color-buttons: #3d3d33;
+}

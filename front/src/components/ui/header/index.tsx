@@ -26,7 +26,7 @@ const Header = async () => {
   });
 
   return (
-    <header className="flex items-center justify-between border-b-2 pb-5 border-gray-700/30 w-full ">
+    <header className="flex items-center justify-between border-b-2 pb-5 border-gray-700/30 w-full  blue:bg-blue-900  blue:text-white">
       <h2 className="text-3xl">{title}</h2>
 
       <div className="flex gap-4 items-center">

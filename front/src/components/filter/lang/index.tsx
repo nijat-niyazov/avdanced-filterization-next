@@ -23,10 +23,10 @@ const SetLanguage = () => {
   const searchParams = useSearchParams();
 
   const locale = useLocale();
-  const url = `${pathname}?${searchParams.toString()}`;
+  const url = `${pathname}?${searchParams.toString()}` as "/categories";
 
   const onChange = (e: ChangeEvent<HTMLSelectElement>) =>
-    router.push(url as "/categories", { locale: e.target.value });
+    router.push(url, { locale: e.target.value });
 
   return (
     <CustomSelect defaultValue={locale} onChange={onChange} options={options} />

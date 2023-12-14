@@ -14,7 +14,8 @@ const Footer = () => {
   const locale = useLocale() as "en" | "tr";
 
   return (
-    <footer className="bg-black min-h-40 flex items-center justify-between text-white px-4 py-5">
+    <footer className="bg-secondary text-primary min-h-[100px] sticky top-full mt-auto flex items-center justify-between text-white ">
+      {/* px-4 py-5 */}
       <p className="flex-none">Footer</p>
 
       <Link href="/categories" className="flex-none mx-auto">

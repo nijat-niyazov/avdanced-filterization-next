@@ -16,7 +16,7 @@ const CustomButton = ({
     <>
       <button
         onClick={(e: any) => console.log(e.target.innerText)}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-buttons  text-white font-bold py-2 px-4 rounded"
       >
         {t("btn")}
         {/* title */}

@@ -5,7 +5,12 @@ import { ReactNode } from "react";
 
 const ThemeProvider = ({ children }: { children: ReactNode | JSX.Element }) => {
   return (
-    <NextThemeProvider enableSystem attribute="class" defaultTheme="system">
+    <NextThemeProvider
+      attribute="data-theme" // it has to be data-theme if you use multiple themes
+      defaultTheme="system"
+      enableColorScheme
+      enableSystem
+    >
       {children}
     </NextThemeProvider>
   );

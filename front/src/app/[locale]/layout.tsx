@@ -1,9 +1,9 @@
-import { Footer, Header } from "@/components/ui/";
+import { Footer, Header } from "@/components/ui";
 import Providers from "@/providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import "./globals.css";
+import "./styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +25,33 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className + " flex flex-col h-screen"}>
+      <body className={inter.className}>
+        {/* <div className="flex flex-col min-h-screen ">
+          <header
+            className="
+          header"
+            children="Header"
+          />
+          <main
+            className="
+          main"
+            children="Content"
+          />
+          <footer
+            className="sticky top-full 
+          footer"
+            children="Footer"
+          />
+        </div> */}
+
         <Providers>
-          <div className="p-5 flex-1">
-            <Header />
-            <main className="flex-1">{children}</main>
+          <div className="min-h-screen bg-primary text-secondary">
+            <div className="p-5">
+              <Header />
+              <main>{children}</main>
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </Providers>
       </body>
     </html>
