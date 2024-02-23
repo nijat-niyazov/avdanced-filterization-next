@@ -7,11 +7,7 @@ import { setQuery } from "@/utils/setQuery";
 import { useLocale } from "next-intl";
 import { ChangeEvent, useState } from "react";
 
-const useMultipleFilter = (
-  param: string,
-  header: string,
-  options: OptionType[]
-) => {
+const useMultipleFilter = (param: string, header: string, options: OptionType[]) => {
   const { router, searchParams, pathname } = useNavigations();
 
   const optionsOnUrl = searchParams.get(param)?.split(",") ?? [];
@@ -21,19 +17,11 @@ const useMultipleFilter = (
   const onColorChange = (color: string, checked: boolean) => {
     let selectedOptions = [...filteredOptions];
 
-    checked
-      ? selectedOptions.push(color)
-      : (selectedOptions = selectedOptions.filter(
-          (selectedColor) => selectedColor !== color
-        ));
+    checked ? selectedOptions.push(color) : (selectedOptions = selectedOptions.filter((selectedColor) => selectedColor !== color));
 
-    const url = setQuery(
-      param,
-      selectedOptions.length > 0 ? selectedOptions : null,
-      searchParams
-    );
+    const url = setQuery(param, selectedOptions.length > 0 ? selectedOptions.join(",") : null, searchParams);
 
-    router.push(pathname + "?" + url);
+    router.replace(pathname + "?" + url);
 
     setfilteredOptions(selectedOptions);
   };
@@ -100,9 +88,7 @@ const useMultipleFilter = (
               type="checkbox"
               id={field.name}
               name={field.name}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                onColorChange(field.value, e.target.checked)
-              }
+              onChange={(e: ChangeEvent<HTMLInputElement>) => onColorChange(field.value, e.target.checked)}
               checked={filteredOptions.includes(field.value)}
               className="w-4 h-4"
             />
