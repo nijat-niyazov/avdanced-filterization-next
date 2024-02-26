@@ -3,23 +3,34 @@
 import { useDebounced, useNavigations, useSearchRouting } from "@/hooks";
 import React, { useRef, useState } from "react";
 
-const Search = ({
-  placeholder: passedPlaceholder,
-}: {
-  placeholder: string;
-}) => {
+const Search = ({ placeholder: passedPlaceholder }: { placeholder: string }) => {
   const { searchParams } = useNavigations();
 
-  const [inputValue, setInputValue] = useState<string>(
-    searchParams.get("query") ?? ""
-  );
+  const [inputValue, setInputValue] = useState<string>(searchParams.get("query") ?? "");
 
   const debouncedValue = useDebounced(inputValue) as string;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setInputValue(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.target.value);
 
   useSearchRouting(debouncedValue, "query");
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const res = await fetch("data/test.json", {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+  //       const data = await res.json();
+  //       console.log(data);
+  //       return data;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   // const text = useTypingEffect("Hello World!", 500);
 
@@ -91,11 +102,7 @@ const Search = ({
             stroke="currentColor"
             className="w-6 h-6"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>

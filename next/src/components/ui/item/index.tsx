@@ -1,13 +1,7 @@
 import { ProductType } from "@/constants/types";
-import {
-  useFormatter,
-  useLocale,
-  useMessages,
-  useNow,
-  useTimeZone,
-  useTranslations,
-} from "next-intl";
+import { useFormatter, useLocale, useMessages, useNow, useTimeZone, useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 const Item = ({ product }: { product: ProductType }) => {
   const t = useTranslations(""); // group of json files
@@ -40,35 +34,21 @@ const Item = ({ product }: { product: ProductType }) => {
 
   return (
     <li>
-      <div className="flex flex-col">
-        <Image
-          width={465}
-          height={420}
-          src={product.src}
-          alt={product.name}
-          className="object-cover md:w-[465px] md:h-[420px] mb-4"
-        />
+      <Link href={`${locale}/${product.id}`} className="flex flex-col">
+        <Image width={465} height={420} src={product.src} alt={product.name} className="object-cover md:w-[465px] md:h-[420px] mb-4" />
         <ul>
           <li className="text-xl font-bold flex items-center justify-between">
             <span>{product.name}</span>
-            <span className="italic font-medium">
-              {t(`categories.${product.category}`)}
-            </span>
+            <span className="italic font-medium">{t(`categories.${product.category}`)}</span>
           </li>
 
-          <li className="text-lg mb-3">
-            {product.color
-              .map((color) => t(`colors.options.${color}.label`))
-              .join(", ")}
-          </li>
+          <li className="text-lg mb-3">{product.color.map((color) => t(`colors.options.${color}.label`)).join(", ")}</li>
           <li className="text-base flex items-center justify-between">
             <span>{price}</span>
-            <span className="text-sm">
-              {t("visited", { count: product.visited })}
-            </span>
+            <span className="text-sm">{t("visited", { count: product.visited })}</span>
           </li>
         </ul>
-      </div>
+      </Link>
     </li>
   );
 };

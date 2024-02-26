@@ -1,15 +1,10 @@
 import HomeContainer from "@/containers/home";
-import { getItemsWithFetch } from "@/libs";
+import { getAllItems } from "@/libs";
+import { useLocale } from "next-intl";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] };
-}) {
-  const { data, maxPrice } = await getItemsWithFetch(searchParams);
+export default async function Home({ searchParams }: { searchParams: { [key: string]: string } }) {
+  const locale = useLocale() as "en" | "tr";
+  const [{ data, maxPrice }] = await Promise.all([getAllItems(locale, searchParams)]);
 
   return <HomeContainer products={data} maxPrice={maxPrice} />;
-
-  // const promise =  getItemsWithFetch(searchParams);
-  // return <HomeContainerCopy promise={promise} maxPrice={maxPrice} />;
 }

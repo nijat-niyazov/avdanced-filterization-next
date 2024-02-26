@@ -90,7 +90,7 @@ const useMultipleFilter = (param: string, header: string, options: OptionType[])
               name={field.name}
               onChange={(e: ChangeEvent<HTMLInputElement>) => onColorChange(field.value, e.target.checked)}
               checked={filteredOptions.includes(field.value)}
-              className="w-4 h-4"
+              className="w-5 h-5 accent-[#7C3AED]"
             />
           </li>
         ))}

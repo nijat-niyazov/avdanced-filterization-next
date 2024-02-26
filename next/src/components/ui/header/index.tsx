@@ -2,7 +2,6 @@ import { Search, SetLanguage, Sort } from "@/components/filter";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { SelectTheme } from "..";
-import CustomButton from "../btn";
 
 const Header = async () => {
   const t = await getTranslations("");
@@ -13,11 +12,7 @@ const Header = async () => {
     github: (chunks) => (
       <>
         <br />
-        <Link
-          className="italic text-lg"
-          target="_blank"
-          href={"https://www.github.com/nijat-niyazov"}
-        >
+        <Link className="italic text-lg" target="_blank" href={"https://www.github.com/nijat-niyazov"}>
           {chunks}
         </Link>{" "}
       </>
@@ -34,9 +29,9 @@ const Header = async () => {
         <Sort />
         <SetLanguage />
         <SelectTheme />
-        <CustomButton title={t("header.btn")}>
+        {/* <CustomButton title={t("header.btn")}>
           <span>{t("header.des")}</span>
-        </CustomButton>
+        </CustomButton> */}
       </div>
     </header>
   );

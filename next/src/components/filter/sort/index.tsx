@@ -17,10 +17,6 @@ const Sort = () => {
 
   const options = [
     {
-      label: locale === "en" ? "Name" : "Ad",
-      value: "name",
-    },
-    {
       label: locale === "en" ? "Price Asc" : "Artan Fiyat",
       value: "priceAsc",
     },

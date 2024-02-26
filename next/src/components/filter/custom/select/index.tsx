@@ -25,7 +25,7 @@ function CustomSelect({
       onChange={onChange}
       // name={name}
       defaultValue={defaultValue}
-      className=" p-2 rounded-lg border-2 border-gray-200 w-28 outline-none"
+      className=" p-2 rounded-lg border-2 border-gray-200 min-w-28 max-w-40 outline-none"
     >
       {label && (
         <option disabled={disabled} value="">

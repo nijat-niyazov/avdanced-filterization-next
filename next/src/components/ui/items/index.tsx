@@ -7,8 +7,8 @@ const Products = ({ products }: { products: ProductType[] }) => {
 
   return products.length > 0 ? (
     <ul className="grid grid-cols-1 md:grid-cols-2 flex-1 gap-10 place-items-center">
-      {products.map((product, i) => (
-        <Item product={product} key={i} />
+      {products.map((product) => (
+        <Item product={product} key={product.id} />
       ))}
     </ul>
   ) : (
