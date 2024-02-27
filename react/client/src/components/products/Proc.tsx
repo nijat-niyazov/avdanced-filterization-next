@@ -1,4 +1,4 @@
-import { ProductType } from ".";
+import { ProductType } from "@/utils/types";
 
 const Product = ({ product }: { product: ProductType }) => {
   return (

@@ -74,6 +74,7 @@ function applyFilters(products, { query, sort, colors, minPrice, maxPrice }) {
 
 app.get("/items", (req, res) => {
   // compute the max price for the filter
+  console.log("req.query", req.query);
   const maxPrice = Math.round(Math.max(...data.map((product) => product.price)));
 
   // fake the request to a backend search service like solr or elasticsearch

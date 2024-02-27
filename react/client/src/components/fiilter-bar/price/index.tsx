@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const PriceFilter = () => {
+const PriceFilter = ({ maxPrice: maxPr }: { maxPrice: number }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const min = +(searchParams.get("minPrice") as string);
-  const max = +(searchParams.get("maxPrice") as string);
+  const max = +(searchParams.get("maxPrice") as string) || maxPr;
   const [minPrice, setMinPrice] = useState(min ?? 0);
-  const [maxPrice, setMaxPrice] = useState(max ?? 0);
+  const [maxPrice, setMaxPrice] = useState(max || 0);
 
   function handleMinPriceChange(e: React.ChangeEvent<HTMLInputElement>) {
     setMinPrice(parseInt(e.target.value));
