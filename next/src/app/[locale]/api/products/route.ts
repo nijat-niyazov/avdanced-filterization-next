@@ -1,29 +1,22 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+import { containColors, matchesQuery, priceRange } from "./(filter-funcs)";
 import items from "./products.json";
+
 const url = "https://jsonplaceholder.typicode.com/todos";
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const params = Object.fromEntries(searchParams.entries());
 
   try {
-    /* -------------------------------- Fetching -------------------------------- */
     const res = await fetch(url);
-    await res.json();
-
-    /* ---------------------------------- Items --------------------------------- */
-    const data = items;
-    const maxPrice = Math.max(...data.map((item) => item.price));
+    const data = await res.json();
 
     const filtered = applyFilters(params);
 
-    /* ----------------------------- Artifical delay ---------------------------- */
-    await new Promise((resolve) => setTimeout(resolve, 2500));
-
-    return Response.json({ data: filtered, maxPrice }, { status: 200 });
+    return Response.json({ data: filtered }, { status: 200 });
   } catch (error) {
     console.log(error);
-    return error;
   }
 }
 
@@ -37,31 +30,6 @@ type Product = {
 };
 
 /* --------------------------------- Helpers --------------------------------- */
-
-function matchesQuery(query: string, productName: string) {
-  return !query || productName.toLowerCase().includes(query.toLowerCase()) ? true : false;
-}
-
-function priceRange(price: number, operator: "less" | "greater", value: number) {
-  if (!price || (price > 0 && operator === "less") ? price < value : price > value) {
-    return false;
-  }
-
-  return true;
-}
-
-function containColors(colors: string, productColors: string[]) {
-  if (!colors) return true;
-
-  const colorsSet = new Set(colors.split(","));
-  for (const color of productColors) {
-    if (colorsSet.has(color)) {
-      return true;
-    }
-  }
-
-  return false;
-}
 
 /* -------------------------------- Filtering ------------------------------- */
 

@@ -12,7 +12,7 @@ const useDebounced = (value: string | number, time: number = 500) => {
     return () => {
       clearTimeout(handler);
     };
-  }, [value]);
+  }, [value, time]);
 
   return debouncedValue;
 };

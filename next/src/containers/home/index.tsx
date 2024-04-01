@@ -1,4 +1,4 @@
-import { ColorFilters, PriceFilter } from "@/components/filter";
+import { ColorFilters } from "@/components/filter";
 
 import { FilterInfo, Products } from "@/components/ui";
 import { colors } from "@/constants/en";
@@ -22,7 +22,7 @@ const HomeContainer = ({ products, maxPrice }: { products: ProductType[]; maxPri
         <FilterInfo items={products} />
         <ColorFilters title={locale === "en" ? "Colors" : "Renkler"} options={options} param="colors" />
 
-        <PriceFilter title={locale === "en" ? "Price" : "Fiyat"} defMaxPrice={maxPrice} />
+        {/* <PriceFilter title={locale === "en" ? "Price" : "Fiyat"} defMaxPrice={maxPrice} /> */}
       </div>
 
       <Products products={products} />

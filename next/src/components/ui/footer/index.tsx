@@ -14,7 +14,7 @@ const Footer = () => {
   const locale = useLocale() as "en" | "tr";
 
   return (
-    <footer className="bg-secondary text-primary min-h-[100px] sticky top-full mt-auto flex items-center justify-between text-white ">
+    <footer className="bg-secondary text-primary min-h-[100px] sticky top-full mt-auto flex items-center justify-between text-white px-10">
       {/* px-4 py-5 */}
       <p className="flex-none">Footer</p>
 
