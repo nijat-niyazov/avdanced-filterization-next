@@ -1,17 +1,8 @@
 import { getRequestConfig } from "next-intl/server";
-import { getTranslationMessagesWithFetch } from "../libs";
+import { getTranslationMessagesWithFetch } from "../services/api";
 
-export default getRequestConfig(
-  async ({ locale }) => {
-    const { data: messages } = await getTranslationMessagesWithFetch({
-      lang: locale,
-    });
+export default getRequestConfig(async ({ locale }) => {
+  const { data: messages } = await getTranslationMessagesWithFetch(locale as "tr" | "en");
 
-    return {
-      messages,
-    };
-  }
-  // ({
-  //   messages: (await import(`../messages/${locale}.json`)).default,
-  // }) //with json
-);
+  return { messages };
+});

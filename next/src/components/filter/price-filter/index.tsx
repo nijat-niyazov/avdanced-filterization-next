@@ -3,13 +3,7 @@ import { Arrow } from "@/components/ui";
 import { useDebounced, useNavigations, useSearchRouting } from "@/hooks";
 import { ChangeEvent, useState } from "react";
 
-const PriceFilter = ({
-  defMaxPrice,
-  title,
-}: {
-  defMaxPrice: number;
-  title: string;
-}) => {
+const PriceFilter = ({ defMaxPrice, title }: { defMaxPrice: number; title: string }) => {
   const { searchParams } = useNavigations();
 
   const initialMax = searchParams.get("maxPrice") ?? defMaxPrice;
@@ -17,10 +11,7 @@ const PriceFilter = ({
 
   const debouncedMax = useDebounced(maxPrice.toString());
 
-  useSearchRouting(
-    maxPrice !== defMaxPrice ? debouncedMax.toString() : null,
-    "maxPrice"
-  );
+  useSearchRouting(maxPrice !== defMaxPrice ? debouncedMax.toString() : null, "maxPrice");
 
   const initialMin = searchParams.get("minPrice") ?? 0;
   const [minPrice, setMinPrice] = useState(initialMin);
@@ -42,10 +33,7 @@ const PriceFilter = ({
   return (
     <div className=" font-medium mt-5 pb-5 border-b-0 border-gray-400/40">
       <div className="flex items-center justify-between">
-        <button
-          onClick={toggleShow}
-          className="font-bold text-start text-lg mb-3 hove:text-purple-500 flex-1"
-        >
+        <button onClick={toggleShow} className="font-bold text-start text-lg mb-3 hove:text-purple-500 flex-1">
           {title}
         </button>
 
@@ -79,9 +67,7 @@ const PriceFilter = ({
             type="text"
             value={minPrice}
             className="p-3 rounded-lg border-2 border-black/20 w-full outline-none"
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setMinPrice(parseInt(e.target.value))
-            }
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setMinPrice(parseInt(e.target.value))}
           />
         </div>
         <div>
@@ -91,9 +77,7 @@ const PriceFilter = ({
             type="text"
             value={maxPrice}
             className="p-3 rounded-lg border-2 border-black/20 w-full outline-none"
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setMaxPrice(parseInt(e.target.value))
-            }
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setMaxPrice(parseInt(e.target.value))}
           />
         </div>
       </div>

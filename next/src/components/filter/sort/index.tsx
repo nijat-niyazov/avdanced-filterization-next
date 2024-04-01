@@ -16,22 +16,10 @@ const Sort = () => {
   const locale = useLocale();
 
   const options = [
-    {
-      label: locale === "en" ? "Price Asc" : "Artan Fiyat",
-      value: "priceAsc",
-    },
-    {
-      label: locale === "en" ? "Price Desc" : "Azalan Fiyat",
-      value: "priceDesc",
-    },
-    {
-      label: locale === "en" ? "Less Popular" : "Az popüler",
-      value: "lessPopular",
-    },
-    {
-      label: locale === "en" ? "Most Popular" : "En popüler",
-      value: "mostPopular",
-    },
+    { label: locale === "en" ? "Price Asc" : "Artan Fiyat", value: "priceAsc" },
+    { label: locale === "en" ? "Price Desc" : "Azalan Fiyat", value: "priceDesc" },
+    { label: locale === "en" ? "Less Popular" : "Az popüler", value: "lessPopular" },
+    { label: locale === "en" ? "Most Popular" : "En popüler", value: "mostPopular" },
   ];
 
   return (

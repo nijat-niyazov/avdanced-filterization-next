@@ -1,5 +1,5 @@
 import HomeContainer from "@/containers/home";
-import { getAllItems } from "@/libs";
+import { getAllItems } from "@/services/api";
 import { useLocale } from "next-intl";
 
 type HomePageProps = {

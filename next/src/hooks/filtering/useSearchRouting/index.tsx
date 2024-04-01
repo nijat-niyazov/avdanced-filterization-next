@@ -2,7 +2,7 @@
 
 import { setQuery } from "@/utils/setQuery";
 import { useEffect } from "react";
-import { useNavigations } from "..";
+import { useNavigations } from "../..";
 
 const useSearchRouting = (value: string | null, param: string) => {
   const { router, searchParams, pathname } = useNavigations();

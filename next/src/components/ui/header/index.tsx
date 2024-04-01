@@ -1,12 +1,10 @@
 import { Search, SetLanguage, Sort } from "@/components/filter";
-import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { SelectTheme } from "..";
 
 const Header = async () => {
   const t = await getTranslations("");
-  const messages = await getMessages();
-  const locale = await getLocale();
 
   const title = t.rich("header.title", {
     github: (chunks) => (
@@ -29,9 +27,6 @@ const Header = async () => {
         <Sort />
         <SetLanguage />
         <SelectTheme />
-        {/* <CustomButton title={t("header.btn")}>
-          <span>{t("header.des")}</span>
-        </CustomButton> */}
       </div>
     </header>
   );

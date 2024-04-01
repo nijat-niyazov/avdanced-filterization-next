@@ -7,14 +7,8 @@ import { ChangeEvent } from "react";
 import { CustomSelect } from "..";
 
 const options: { label: string; value: string }[] = [
-  {
-    label: "English",
-    value: "en",
-  },
-  {
-    label: "Turkish",
-    value: "tr",
-  },
+  { label: "English", value: "en" },
+  { label: "Türk", value: "tr" },
 ];
 
 const SetLanguage = () => {
@@ -25,12 +19,9 @@ const SetLanguage = () => {
   const locale = useLocale();
   const url = `${pathname}?${searchParams.toString()}` as "/categories";
 
-  const onChange = (e: ChangeEvent<HTMLSelectElement>) =>
-    router.push(url, { locale: e.target.value });
+  const onChange = (e: ChangeEvent<HTMLSelectElement>) => router.push(url, { locale: e.target.value });
 
-  return (
-    <CustomSelect defaultValue={locale} onChange={onChange} options={options} />
-  );
+  return <CustomSelect defaultValue={locale} onChange={onChange} options={options} />;
 };
 
 export default SetLanguage;
