@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import enMessages from "./messages/en.json";
-import trMessages from "./messages/tr.json";
+import enMessages from "./(messages)/en.json";
+import trMessages from "./(messages)/tr.json";
 
 const url = "https://jsonplaceholder.typicode.com/todos";
 
