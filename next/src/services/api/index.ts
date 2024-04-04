@@ -1,7 +1,5 @@
 import { mainURL } from "@/constants/urls";
 
-console.log({ mainURL });
-
 function generatUrl(main: string, endPoint: string, params: { [key: string]: string }) {
   const queryString = new URLSearchParams(params).toString();
 

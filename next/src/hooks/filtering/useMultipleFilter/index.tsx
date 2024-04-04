@@ -46,10 +46,8 @@ const useMultipleFilter = (param: string, header: string, options: OptionType[])
       <div className="flex items-center justify-between">
         <button
           onClick={toggleShow}
-          style={{
-            color: show ? "#7C3AED" : "#000",
-          }}
-          className="font-bold text-start text-lg mb-3 hover:text-purple-500 flex-1"
+          style={{ color: show ? "#7C3AED" : "" }}
+          className="font-bold text-start text-lg mb-3 text-secondary hover:text-purple-500 flex-1"
         >
           {header}
         </button>
@@ -72,6 +70,7 @@ const useMultipleFilter = (param: string, header: string, options: OptionType[])
       </div>
 
       <ul
+        className="bg-primary"
         style={{
           maxHeight: show ? "400px" : "0px",
           overflowY: "scroll",
